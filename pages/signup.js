@@ -25,7 +25,7 @@ function Signup() {
       body: raw
     };
     
-    fetch("http://localhost:3000/users", requestOptions)
+    fetch("https://thp-immo-project-stage.herokuapp.com/users", requestOptions)
       .then(response => {
         if (response.headers.get('Authorization'))
         {
