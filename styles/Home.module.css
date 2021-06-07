@@ -8,6 +8,10 @@
   height: 100vh;
 }
 
+.test {
+  @apply font-thin;
+}
+
 .main {
   padding: 5rem 0;
   flex: 1;
