@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Layout>
         <Component {...pageProps} />  
-       </Layout>
+      </Layout>
     </Provider>
 
   )

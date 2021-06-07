@@ -2,9 +2,10 @@ import Navbar from "./Navbar"
 
 const Layout = ({ children }) => {
     return (
-        <Navbar>
-            { children}
-        </Navbar>
+        <>
+            <Navbar/>         
+            {children}
+        </>
     )
 }
 
