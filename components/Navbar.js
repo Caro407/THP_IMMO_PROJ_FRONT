@@ -41,7 +41,7 @@ const Navbar = () => {
             >
                 <div className='lg:inline-flex lg:flex-row lg:ml-auto lg:w-auto w-full lg:items-center items-start  flex flex-col lg:h-auto'>
 
-                    <Link href='/home'>
+                    <Link href='/'>
                         <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-red-300 hover:text-white'>
                             Accueil
                         </a>
@@ -56,7 +56,7 @@ const Navbar = () => {
                             S'inscrire
                          </a>
                     </Link>
-                    <Link href='/signin'>
+                    <Link href='/login'>
                         <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-red-300 hover:text-white'>
                             Se connecter
                          </a>
