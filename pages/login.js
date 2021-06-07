@@ -25,7 +25,7 @@ function Login() {
       body: raw
     };
     
-    fetch("http://localhost:3000/users/sign_in", requestOptions)
+    fetch("https://thp-immo-project-stage.herokuapp.com/users/sign_in", requestOptions)
       .then(response => {
         if (response.headers.get('Authorization'))
         {
