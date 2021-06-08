@@ -7,6 +7,7 @@ const Edit = () => {
   const userToken = useSelector(state => state.token);
   React.useEffect(
     () => {
+      if (!userToken) { window.location = "/login" }
       let myHeaders = new Headers();
       myHeaders.append("Authorization", `${userToken}`);
 
