@@ -14,14 +14,14 @@ export default function Home() {
 
     fetch(`${process.env.url}/posts`, {
       headers: {
-        "Content-Type": "application/json",
-        "Authorization": `${userToken}`
+        "Content-Type": "application/json"
       }
     })
       .then(response => response.json())
       .then(response => {
         setPosts(response);
       })
+      .catch(err => console.log(err))
   }
 
   React.useEffect(() => { fetchPosts() }, [])

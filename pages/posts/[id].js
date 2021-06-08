@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import PostCard from '../../components/PostCard'
 
 export const getStaticPaths = async () => {
-    const res = await fetch('http://localhost:3000/posts')
+    const res = await fetch(`${process.env.url}/posts`)
     const data = await res.json();
     console.log(data)
 
@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const id = context.params.id;
-    const res = await fetch('http://localhost:3000/posts/' + id);
+    const res = await fetch(`${process.env.url}/posts` + id);
     const data = await res.json();
     return {
         props: {post: data}
