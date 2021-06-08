@@ -24,8 +24,8 @@ function Signup() {
       headers: myHeaders,
       body: raw
     };
-    
-    fetch("http://localhost:3000/users", requestOptions)
+
+    fetch(`${process.env.url}/users`, requestOptions)
       .then(response => {
         if (response.headers.get('Authorization'))
         {
@@ -62,7 +62,7 @@ function Signup() {
             </button>
           </form>
         </div>
-      </div>      
+      </div>
     </>
   )
 }
