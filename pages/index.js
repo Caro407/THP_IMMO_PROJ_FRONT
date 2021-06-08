@@ -9,7 +9,7 @@ export default function Home() {
   const [posts, setPosts] = React.useState([])
 
   const fetchPosts = () => {
-    fetch('http://localhost:3000/posts', {
+    fetch(`${process.env.url}/posts`, {
       headers: {
         "Content-Type": "application/json",
         "Authorization": `${userToken}`

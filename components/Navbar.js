@@ -26,7 +26,7 @@ const Navbar = () => {
         redirect: 'follow'
         };
 
-        fetch("http://localhost:3000/users/sign_out", requestOptions)
+        fetch(`${process.env.url}/users/sign_out`, requestOptions)
         .catch(error => console.log('error', error));
             }
 
