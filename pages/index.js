@@ -3,6 +3,8 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React from 'react';
 import PostCard from '../components/PostCard'
+import Link from 'next/link'
+
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
@@ -28,7 +30,13 @@ export default function Home() {
       <h1 className={styles.title}>Hello</h1>
       <div className="grid grid-cols-3">
         {posts.map(post =>
-          <PostCard data={post} key={post.id}/>
+                <Link key={post.id} href={`/posts/` +post.id}>
+                  <a>{post.title}</a>
+                </Link>
+
+        
+         // <PostCard data={post} key={post.id}/>
+          
         )}
       </div>
     </div>

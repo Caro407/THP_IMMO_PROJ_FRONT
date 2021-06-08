@@ -9,6 +9,8 @@ const Post = () => {
     const [post, setPost] = React.useState({});
     const router = useRouter()
     const { pid } = router.query
+    let slug = window.location.hash.substring(1).split("/")[1]
+    console.log(slug)
 
     React.useEffect(
         () => {
@@ -16,7 +18,7 @@ const Post = () => {
                 method: 'GET',
             };
 
-            fetch("http://localhost:3000/posts/1", requestOptions)
+            fetch(`http://localhost:3000/posts/${slug}`, requestOptions)
                 .then(response => response.json())
                 .then(result => setPost(result))
                 .catch(error => console.log('error', error));
