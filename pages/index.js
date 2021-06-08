@@ -2,12 +2,12 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React from 'react';
+import PostCard from '../components/PostCard'
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
 
   const fetchPosts = () => {
-    console.log('Coucou je fetche');
     fetch('http://localhost:3000/posts')
       .then(response => response.json())
       .then(response => {
@@ -28,10 +28,7 @@ export default function Home() {
       <h1 className={styles.title}>Hello</h1>
       <div className="container">
         {posts.map(post =>
-          <div className={`post-${post.id}`}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-          </div>
+          <PostCard data={post} key={post.id}/>
         )}
       </div>
     </div>
