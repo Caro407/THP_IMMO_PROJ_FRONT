@@ -2,13 +2,19 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React from 'react';
-import PostCard from '../components/PostCard'
+import PostCard from '../components/PostCard';
+import Cookies from 'js-cookie';
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
 
   const fetchPosts = () => {
-    fetch('http://localhost:3000/posts')
+    fetch('http://localhost:3000/posts', {
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `${Cookies.get('token')}`
+      }
+    })
       .then(response => response.json())
       .then(response => {
         console.log(response);
