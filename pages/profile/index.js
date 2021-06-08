@@ -6,9 +6,12 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const [currentUser, setCurrentUser] = React.useState({});
   const userToken = useSelector(state => state.token);
+
   React.useEffect(
     () => {
-      let myHeaders = new Headers();
+      if (!userToken) { window.location = "/login" }
+      else
+      {let myHeaders = new Headers();
       myHeaders.append("Authorization", `${userToken}`);
 
       let requestOptions = {
@@ -19,7 +22,7 @@ const Profile = () => {
       fetch("http://localhost:3000/profile", requestOptions)
       .then(response => response.json())
       .then(result=> setCurrentUser(result))
-      .catch(error => console.log('error', error));
+      .catch(error => console.log('error', error));}
     }
     , []
   )

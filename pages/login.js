@@ -24,8 +24,8 @@ function Login() {
       headers: myHeaders,
       body: raw
     };
-    
-    fetch("http://localhost:3000/users/sign_in", requestOptions)
+
+    fetch(`${process.env.url}/users/sign_in`, requestOptions)
       .then(response => {
         if (response.headers.get('Authorization'))
         {
@@ -62,7 +62,7 @@ function Login() {
             </button>
           </form>
         </div>
-      </div>      
+      </div>
     </>
   )
 }
