@@ -35,13 +35,8 @@ const Post = ({post}) => {
 
    
     return (
-        <div>
-            <h1>{post.title}</h1>
-            <h1>{post.content}</h1>
-        </div>
 
-
-        // <PostCard title = {post.title} content= {post.content}/>
+        <PostCard title = {post.title} content= {post.content} price={post.price}/>
 
     )
 }

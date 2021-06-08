@@ -2,15 +2,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import React from 'react';
-import PostCard from '../components/PostCard'
 import Link from 'next/link'
+import CardIndex from '../components/CardIndex';
 
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
 
   const fetchPosts = () => {
-    fetch('http://localhost:3000/posts')
+    fetch(`http://localhost:3000/posts`)
       .then(response => response.json())
       .then(response => {
         console.log(response);
@@ -18,7 +18,7 @@ export default function Home() {
       })
   }
 
-  React.useEffect(() => {fetchPosts()}, [])
+  React.useEffect(() => { fetchPosts() }, [])
 
   return (
     <div>
@@ -30,14 +30,18 @@ export default function Home() {
       <h1 className={styles.title}>Hello</h1>
       <div className="grid grid-cols-3">
         {posts.map(post =>
-                <Link key={post.id} href={`/posts/` +post.id}>
-                  <a>{post.title}</a>
-                </Link>
-
-        
-         // <PostCard data={post} key={post.id}/>
-          
-        )}
+          <div class="container md:mx-auto justify-content">
+            <CardIndex title={post.title} content={post.content}/>
+            <Link key={post.id} href={`/posts/` + post.id}>
+              <div class="flex content-center items-center padding-left-auto padding-right-auto pr-12">
+                <button class="bg-red-300 hover:bg-red-600 text-white font-bold py-2 px-2 ml-48 rounded">
+                  Détails
+                </button>
+              </div>
+            </Link>
+          </div>
+        )
+        }
       </div>
     </div>
   )
