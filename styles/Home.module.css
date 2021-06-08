@@ -3,13 +3,29 @@
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
+  @apply text-center;
+  @apply mt-12;
+  @apply px-6;
 }
 
-.test {
-  @apply font-thin;
+.buttonPink {
+  @apply bg-pink-600;
+  @apply px-5;
+  @apply py-3;
+  @apply text-sm;
+  @apply shadow-sm;
+  @apply font-medium;
+  @apply tracking-wider;
+  @apply border;
+  @apply text-pink-100;
+  @apply rounded-full
+}
+
+.buttonPink:hover{
+  @apply shadow-lg;
+  @apply bg-pink-700;
 }
 
 .main {
@@ -49,9 +65,7 @@
 }
 
 .title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
+  @apply text-4xl; @apply font-semibold; @apply leading-normal; @apply mb-2; @apply text-gray-800; @apply mb-2;
 }
 
 .title,
