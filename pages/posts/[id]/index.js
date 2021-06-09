@@ -1,6 +1,7 @@
 import PostCard from "../../../components/PostCard";
 
 export const getServerSidePaths = async () => {
+
     const res = await fetch(`${process.env.url}/posts`)
     const data = await res.json();
 
@@ -25,9 +26,9 @@ export const getServerSideProps = async (context) => {
     }
 }
 
-const Post = ({post}) => {   
+const Post = ({post}) => {
     return (
-      <PostCard title={post.title} content={post.content} price={post.price} owner={post.owner_id}/>
+      <PostCard title={post.title} content={post.content} price={post.price} owner={post.owner} images={post.images}/>
     )
 }
 

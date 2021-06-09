@@ -4,7 +4,6 @@ import React from 'react';
 import Link from 'next/link'
 import CardIndex from '../components/CardIndex';
 
-
 export default function Home() {
   const [posts, setPosts] = React.useState([])
 
@@ -17,7 +16,6 @@ export default function Home() {
     })
       .then(response => response.json())
       .then(response => {
-        console.log(response);
         setPosts(response);
       })
       .catch(err => console.log(err))

@@ -15,6 +15,9 @@ module.exports = (phase, { defaultConfig }) => {
   return {
     env: {
       url: 'https://thp-immo-project-stage.herokuapp.com',
+    },
+    images: {
+      domains: ['https://thp-immo-project-stage.herokuapp.com'],
     }
   }
 }
