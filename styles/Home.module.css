@@ -11,21 +11,22 @@
 }
 
 .buttonPink {
-  @apply bg-pink-600;
+  @apply bg-red-500;
   @apply px-5;
   @apply py-3;
+  @apply mx-auto;
   @apply text-sm;
   @apply shadow-sm;
   @apply font-medium;
   @apply tracking-wider;
   @apply border;
-  @apply text-pink-100;
+  @apply text-white;
   @apply rounded-full
 }
 
 .buttonPink:hover{
   @apply shadow-lg;
-  @apply bg-pink-700;
+  @apply bg-red-700;
 }
 
 .main {
@@ -35,6 +36,31 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#jumbotron_banner{
+  background-image: url('../public/images/jumbotron.jpg');
+  height:75vh;
+  background-position: center;
+  object-fit: cover;
+}
+
+.navbarLink{
+  @apply w-full;
+  @apply px-3;
+  @apply py-2;
+  @apply rounded;
+  @apply text-white;
+  @apply font-bold;
+  @apply items-center;
+  @apply justify-center;
+  @apply bg-red-300;
+  @apply text-gray-100;
+  @apply whitespace-nowrap
+}
+
+.navbarLink:hover{
+  @apply text-white;
 }
 
 .footer {
@@ -65,7 +91,7 @@
 }
 
 .title {
-  @apply text-4xl; @apply font-semibold; @apply leading-normal; @apply mb-2; @apply text-gray-800; @apply mb-2;
+  @apply text-4xl; @apply font-semibold; @apply leading-normal; @apply mb-2; @apply text-gray-800;
 }
 
 .title,
@@ -76,24 +102,6 @@
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
-}
-
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
 }
 
 .card {
@@ -135,5 +143,10 @@
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .navbarLink{
+    @apply inline-flex;
+    @apply w-auto;
   }
 }

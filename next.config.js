@@ -5,6 +5,9 @@ module.exports = (phase, { defaultConfig }) => {
     return {
       env: {
         url: 'http://localhost:3000',
+      },
+      images: {
+        domains: ['localhost'],
       }
     }
   }
