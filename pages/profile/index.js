@@ -19,14 +19,14 @@ const Profile = () => {
         headers: myHeaders
       };
 
-      fetch("http://localhost:3000/profile", requestOptions)
+      fetch(`${process.env.url}/profile`, requestOptions)
       .then(response => response.json())
       .then(result=> setCurrentUser(result))
       .catch(error => console.log('error', error));}
     }
     , []
   )
-  return (      
+  return (
     <div className={styles.container}>
       <h3 className={styles.title}>
       Mon profil
@@ -44,7 +44,7 @@ const Profile = () => {
         Mon prénom : {currentUser.first_name}
       </div>
       <Link href="/profile/edit"><a className={styles.buttonPink}>Modifier mes informations</a></Link>
-    </div>        
+    </div>
   )
 };
 

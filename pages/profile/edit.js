@@ -16,7 +16,7 @@ const Edit = () => {
         headers: myHeaders
       };
 
-      fetch("http://localhost:3000/profile", requestOptions)
+      fetch(`${process.env.url}/profile`, requestOptions)
       .then(response => response.json())
       .then(result=> setCurrentUser(result))
       .catch(error => console.log('error', error));
@@ -29,7 +29,7 @@ const Edit = () => {
     let myHeaders = new Headers();
     myHeaders.append("Authorization", `${userToken}`);
     myHeaders.append("Content-Type", "application/json");
-    
+
     let raw = JSON.stringify({
       "user": {
         "email": `${event.target.elements.email.value}`,
@@ -44,7 +44,7 @@ const Edit = () => {
       body: raw
     };
 
-    fetch(`http://localhost:3000/users/${currentUser.id}`, requestOptions)
+    fetch(`${process.env.url}/users/${currentUser.id}`, requestOptions)
       .then(() => {window.location = "/profile"})
     .catch(error => console.log('error', error));
   }
@@ -78,7 +78,7 @@ const Edit = () => {
           </form>
         </div>
     </div>
-    
+
   )
 }
 
