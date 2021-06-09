@@ -86,7 +86,7 @@ const Navbar = () => {
                             Mon profil
                         </a>
                     </Link>
-                    <Link href='/posts'>
+                    <Link href='/posts/owner_posts'>
                     <a className='lg:inline-flex lg:w-auto w-full px-3 py-2 rounded text-white font-bold items-center justify-center hover:bg-red-300 hover:text-white'>
                         Mes annonces
                     </a>
