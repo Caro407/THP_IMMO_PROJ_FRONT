@@ -33,12 +33,10 @@ export default function Home() {
 
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
       <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900"></div>
-        <div className="relative container mx-auto p-4 flex items-center justify-center z-10">
-          <div>
-            <div className="content text-center p-4">
-              <div className="text-5xl leading-normal text-gray-200">Bienvenue sur Immo Coin !</div>
-              <div className="text-lg leading-normal mt-0 mb-2 text-gray-200 font-bold uppercase">Le leader de l'immobilier entre particuliers</div>
-            </div>
+        <div className="absolute container bottom-10 mx-auto flex items-center justify-center z-10">
+          <div className="content text-center p-4">
+            <div className="text-5xl leading-normal text-gray-200">Bienvenue sur Immo Coin !</div>
+            <div className="text-lg leading-normal mt-0 mb-2 text-gray-200 font-bold uppercase">Le leader de l'immobilier entre particuliers</div>
           </div>
         </div>
       </div>
