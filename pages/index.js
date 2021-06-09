@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import React from 'react';
+import Link from 'next/link'
 import CardIndex from '../components/CardIndex';
-
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
@@ -46,7 +46,7 @@ export default function Home() {
         <div className="grid md:grid-cols-3 mt-6">
           {posts.map(post =>
             <div key={post.id} className="container md:mx-auto justify-content">
-              <CardIndex title={post.title} content={post.content} id={post.id}/>
+              <CardIndex title={post.title} content={post.content} id={post.id} images={post.images}/>
             </div>
           )
           }
