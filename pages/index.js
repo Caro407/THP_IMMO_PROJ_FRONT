@@ -2,6 +2,7 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import React from 'react';
 import Link from 'next/link'
+import Image from 'next/image'
 import CardIndex from '../components/CardIndex';
 import { useSelector } from 'react-redux';
 
@@ -19,6 +20,7 @@ export default function Home() {
     })
       .then(response => response.json())
       .then(response => {
+        console.log(response);
         setPosts(response);
       })
       .catch(err => console.log(err))
@@ -36,7 +38,8 @@ export default function Home() {
       <h1 className={styles.title}>Bienvenue sur Immo Coin !</h1>
       <div className="grid md:grid-cols-3 mx-12">
         {posts.map(post =>
-          <div class="container md:mx-auto justify-content">
+          <div class="container border rounded md:mx-auto justify-content">
+            
             <CardIndex title={post.title} content={post.content}/>
             <Link key={post.id} href={`/posts/` + post.id}>
               <div class="flex content-center items-center padding-left-auto padding-right-auto pr-12">
