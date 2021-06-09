@@ -1,6 +1,7 @@
 import Cookies from "js-cookie";
 import Router from 'next/router';
 import { useRef, useState } from "react";
+import styles from '../../styles/Home.module.css'
 
 function PostCreation () {
   const [image, setImage] = useState(null);
@@ -39,23 +40,25 @@ function PostCreation () {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
       <div>
-        <label>Titre de l'annonce :
-          <input name="title" type="text" ref={titleRef} placeholder="Donnez un nom à votre annonce..." />
+        <label className="block text-gray-700 text-sm font-bold mb-2">Titre de l'annonce :
         </label>
-        <label>Contenu de l'annonce :
-          <textarea name="content" ref={contentRef} placeholder="Descrivez votre annonce en quelques mots" />
+        <input name="title" type="text" ref={titleRef} placeholder="Donnez un nom à votre annonce..." required="required" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+        <label className="block text-gray-700 text-sm font-bold mb-2">Contenu de l'annonce :
         </label>
-        <label>Prix du bien :
-          <input name="price" type="number" ref={priceRef} />
-        </label>
+        <textarea name="content" ref={contentRef} placeholder="Décrivez votre annonce en quelques mots" required="required" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+        <div>
+          <label className="inline text-gray-700 text-sm font-bold mb-2 mr-2">Prix du bien :
+          </label>
+          <input name="price" type="number" ref={priceRef} required="required" className="inline shadow appearance-none border rounded w-48 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"/>
+        </div>
         <img src={createObjectURL} />
-        <label>Images :
-          <input name="image" type="file" onChange={uploadToClient} />
+        <label className="block text-gray-700 text-sm font-bold mb-2">Images :
+          <input name="image" type="file" multiple="multiple" onChange={uploadToClient} />
         </label>
       </div>
-      <input type="submit" value="Publier" />
+      <input type="submit" value="Publier" className={styles.buttonPink}/>
     </form>
   )
 }
