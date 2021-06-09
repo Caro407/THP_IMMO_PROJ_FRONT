@@ -1,8 +1,10 @@
-import Cookies from "js-cookie";
 import Router from 'next/router';
 import { useRef } from "react";
+import { useSelector } from "react-redux";
 
 function PostCreation () {
+
+  const userToken = useSelector(state => state.token);
 
   const titleRef = useRef();
   const contentRef = useRef();
@@ -11,11 +13,10 @@ function PostCreation () {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(Cookies.get('token'));
     fetch("http://localhost:3000/posts", {
       method: "post",
       headers: {
-        "Authorization": `${Cookies.get('token')}`,
+        "Authorization": `${userToken}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify( {"post": {
