@@ -55,7 +55,7 @@ function PostCreation () {
         </div>
         <img src={createObjectURL} />
         <label className="block text-gray-700 text-sm font-bold mb-2">Images :
-          <input name="image" type="file" multiple="multiple" onChange={uploadToClient} />
+          <input name="images[]" type="file" multiple="true" onChange={uploadToClient} />
         </label>
       </div>
       <input type="submit" value="Publier" className={styles.buttonPink}/>
