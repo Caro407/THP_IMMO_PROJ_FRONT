@@ -5,12 +5,15 @@ const env = process.env.ENV || 'production';
 const configs = {
   development: {
     api: 'http://localhost:3005/',
+    domains: ['localhost'],
   },
   staging: {
     api: 'https://thp-immo-project-stage.herokuapp.com/',
+    domains: ['thp-immo-project-stage.herokuapp.com'],
   },
   production: {
     api: 'https://thp-immo-project.herokuapp.com/',
+    domains: ['thp-immo-project.herokuapp.com'],
   },
 }[env];
 
@@ -31,7 +34,7 @@ module.exports = (phase, { defaultConfig }) => {
       url: configs.api,
     },
     images: {
-      domains: ['thp-immo-project-stage.herokuapp.com'],
+      domains: configs.domains,
     }
   }
 }
