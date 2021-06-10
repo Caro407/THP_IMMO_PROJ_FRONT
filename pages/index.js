@@ -67,15 +67,15 @@ export default function Home() {
 
       <div className={styles.container}>
         <div className={styles.title}>Nos annonces</div>
-        <div className="card-body">
-          <label className="checkbox-btn"> <input type="checkbox" name="city" onClick = {() => toggleFilter(`Paris`)} /> <span className="btn btn-light"> Paris </span> </label>
-          <label className="checkbox-btn"> <input type="checkbox" name="city" onClick = {() => toggleFilter(`Marseille`)} /> <span className="btn btn-light"> Marseille </span> </label>
-          <label className="checkbox-btn"> <input type="checkbox" name="city" onClick = {() => toggleFilter(`Lyon`)} /> <span className="btn btn-light"> Lyon</span> </label>
+        <div className="flex items-center">
+          <label className="checkbox-btn mx-6"> <input type="checkbox" key="city1" onClick = {() => toggleFilter(`Paris`)} /> <span className="btn btn-light"> Paris </span> </label>
+          <label className="checkbox-btn mx-6"> <input type="checkbox" key="city2" onClick = {() => toggleFilter(`Marseille`)} /> <span className="btn btn-light"> Marseille </span> </label>
+          <label className="checkbox-btn mx-6"> <input type="checkbox" key="city3" onClick = {() => toggleFilter(`Le Conquet`)} /> <span className="btn btn-light"> Le Conquet</span> </label>
         </div>
         <div className="grid md:grid-cols-3 mt-6">
           {posts.map(post =>
             <div key={post.id} className="container md:mx-auto justify-content">
-              <CardIndex title={post.title} content={post.content} id={post.id} cityName={cities.filter(city => city.id === post.city_id)[0].name} />
+              <CardIndex title={post.title} content={post.content} id={post.id} images={post.images} cityName={cities.filter(city => city.id === post.city_id)[0].name} />
             </div>
           )
           }

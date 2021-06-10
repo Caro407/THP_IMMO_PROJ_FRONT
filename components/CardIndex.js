@@ -8,8 +8,8 @@ const CardIndex = (props) => {
         {props.images[0] ? <Image src={props.images[0]} width={500} height={500} className="w-full object-cover object-center rounded-lg shadow-md" /> : <img src="https://via.placeholder.com/500?text=Pas+d%27image+disponible " className="w-full object-cover object-center rounded-lg shadow-md"></img> }
         <div className="relative px-4 -mt-16  ">
           <div className="bg-white p-6 rounded-lg shadow-xl">
-          <div class="flex justify-center">
-            <div class="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
+          <div className="flex justify-center">
+            <div className="ml-2 text-gray-600 uppercase text-xs font-semibold tracking-wider">
               {props.cityName}
             </div>  
           </div>
