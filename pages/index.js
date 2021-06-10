@@ -56,7 +56,7 @@ export default function Home() {
 
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
         <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900"></div>
-        <div className="absolute container bottom-10 mx-auto flex items-center justify-center z-10">
+        <div className="relative container mx-auto mb-6 flex items-end justify-center z-10">
           <div className="content text-center p-4">
             <div className="text-5xl leading-normal text-gray-200">Bienvenue sur Immo Coin !</div>
             <div className="text-lg leading-normal mt-0 mb-2 text-gray-200 font-bold uppercase">Le leader de l'immobilier entre particuliers</div>
@@ -71,8 +71,8 @@ export default function Home() {
           <label className="checkbox-btn mx-6"> <input type="checkbox" key="city2" onClick = {() => toggleFilter(`Marseille`)} /> <span className="btn btn-light"> Marseille </span> </label>
           <label className="checkbox-btn mx-6"> <input type="checkbox" key="city3" onClick = {() => toggleFilter(`Le Conquet`)} /> <span className="btn btn-light"> Le Conquet</span> </label>
         </div>
-        <div className="grid md:grid-cols-3 mt-6">
-          {posts.map(post =>
+        <div className="grid xl:grid-cols-3 mt-6">
+          {posts.sort((a,b) => new Date(b.created_at) - new Date(a.created_at)).map(post =>
             <div key={post.id} className="container md:mx-auto justify-content">
               <CardIndex title={post.title} content={post.content} id={post.id} images={post.images} cityName={cities.filter(city => city.id === post.city_id)[0].name} />
             </div>
