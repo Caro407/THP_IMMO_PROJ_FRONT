@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import useSWR from "swr";
-// import styles from '../styles/Home.module.css'
-
+import styles from '../../styles/Home.module.css'
 
 async function fetcher(...args) {
   const [url, token] = args;
@@ -15,6 +14,8 @@ async function fetcher(...args) {
 
   return res.json()
 }
+
+
 
 function OwnerPosts() {
 
@@ -41,20 +42,20 @@ function OwnerPosts() {
   }
 
   return(
-    <div>Voici vos articles :
+    <div className={styles.title}>Voici vos articles :
+      <div className={styles.container}>
     {
       data.map((post, index) => (
-        <div key={index}>
-          <div className="border rounded p-10">
+          <div key={index} className="border rounded p-10">
             <h2 className="font-bold text-4xl text-red-500 capitalize mb-4">{post.title}</h2>
             <p className="m-6">{post.content}</p>
             <p className="m-6 text-3xl font-bold">{post.price} €</p>
-            <button onClick={(e) => {handleDelete(post.id)}}>Supprimer</button>
-            <button onClick={(e) => {handleEdit(post.id)}}>Editer</button>
+            <button onClick={(e) => {handleDelete(post.id)}} className={styles.buttonPink}>Supprimer</button>
+            <button onClick={(e) => {handleEdit(post.id)}} className={styles.buttonPink}>Editer</button>
           </div> 
-        </div>
       ))
     }
+      </div>
     </div>
   )
 }

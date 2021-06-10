@@ -49,7 +49,7 @@ const Layout = ({ children }) => {
                     Créer une annonce
                 </a>
             </Link>
-            <Link href='/posts'>
+            <Link href='/posts/owner_posts'>
                 <a className={styles.navbarLink}>
                     Mes annonces
             </a>
