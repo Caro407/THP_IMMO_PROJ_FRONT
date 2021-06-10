@@ -18,7 +18,7 @@ After cloning this repository (or downloading and unzipping it), run `npm instal
 
 ## Team
 
-[Ariane](https://github.com/arejl)
-[Caroline](https://github.com/Caro407)
-[Emmanuel](https://github.com/EmmanuelQuere)
-[Erwann](https://github.com/erwannlenoach)
+* [Ariane](https://github.com/arejl)
+* [Caroline](https://github.com/Caro407)
+* [Emmanuel](https://github.com/EmmanuelQuere)
+* [Erwann](https://github.com/erwannlenoach)
