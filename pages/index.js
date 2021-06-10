@@ -2,7 +2,6 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import React from 'react';
 import CardIndex from '../components/CardIndex';
-import SearchBar from '../components/SearchBar'
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
