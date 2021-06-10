@@ -43,7 +43,7 @@ export default function Home() {
 
       <div className={styles.container}>
         <div className={styles.title}>Nos annonces</div>
-        <div className="grid md:grid-cols-3 mt-6">
+        <div className="grid lg:grid-cols-3 mt-6">
           {posts.map(post =>
             <div key={post.id} className="container md:mx-auto justify-content">
               <CardIndex title={post.title} content={post.content} id={post.id} images={post.images}/>
