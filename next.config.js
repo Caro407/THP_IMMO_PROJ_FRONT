@@ -1,4 +1,5 @@
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
+import configs from './env_config.js'
+const { PHASE_DEVELOPMENT_SERVER } = require('next/constants');
 
 module.exports = (phase, { defaultConfig }) => {
   if (phase === PHASE_DEVELOPMENT_SERVER) {
@@ -14,7 +15,7 @@ module.exports = (phase, { defaultConfig }) => {
 
   return {
     env: {
-      url: 'https://thp-immo-project-stage.herokuapp.com',
+      url: configs.api,
     },
     images: {
       domains: ['thp-immo-project-stage.herokuapp.com'],
