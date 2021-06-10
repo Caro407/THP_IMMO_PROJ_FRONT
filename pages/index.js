@@ -3,9 +3,11 @@ import styles from '../styles/Home.module.css'
 import React from 'react';
 import Link from 'next/link'
 import CardIndex from '../components/CardIndex';
+import SearchBar from '../components/SearchBar'
 
 export default function Home() {
   const [posts, setPosts] = React.useState([])
+  const [allPosts, setAllPosts] = React.useState([])
 
   const fetchPosts = () => {
 
@@ -17,10 +19,16 @@ export default function Home() {
       .then(response => response.json())
       .then(response => {
         setPosts(response);
+        setAllPosts(response);
       })
       .catch(err => console.log(err))
   }
 
+  const filter = (cityname) => {
+
+    setPosts( allPosts.filter(post => post.city.name === cityname))
+  }
+ 
   React.useEffect(() => { fetchPosts() }, [])
 
   return (
@@ -32,7 +40,7 @@ export default function Home() {
       </Head>
 
       <div id={styles.jumbotron_banner} className="relative hero-image bg-right-bottom bg-cover flex" >
-      <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900"></div>
+        <div className="absolute top-0 mt-20 right-0 bottom-0 left-0 bg-gradient-to-b from-transparent to-gray-900"></div>
         <div className="absolute container bottom-10 mx-auto flex items-center justify-center z-10">
           <div className="content text-center p-4">
             <div className="text-5xl leading-normal text-gray-200">Bienvenue sur Immo Coin !</div>
@@ -43,10 +51,15 @@ export default function Home() {
 
       <div className={styles.container}>
         <div className={styles.title}>Nos annonces</div>
-        <div className="grid lg:grid-cols-3 mt-6">
+        <div className="card-body">
+          <label className="checkbox-btn"> <input type="checkbox" name="city" onClick = {() => filter(`Paris`)} /> <span className="btn btn-light"> Paris </span> </label>
+          <label className="checkbox-btn"> <input type="checkbox" name="city" onClick = {() => filter(`Marseille`)} /> <span className="btn btn-light"> Marseille </span> </label>
+          <label className="checkbox-btn"> <input type="checkbox" name="city" onClick = {() => filter(`Lyon`)} /> <span className="btn btn-light"> Lyon</span> </label>
+        </div>
+        <div className="grid md:grid-cols-3 mt-6">
           {posts.map(post =>
             <div key={post.id} className="container md:mx-auto justify-content">
-              <CardIndex title={post.title} content={post.content} id={post.id} images={post.images}/>
+              <CardIndex title={post.title} content={post.content} id={post.id} />
             </div>
           )
           }
