@@ -4,10 +4,12 @@ import styles from '../styles/Home.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from '../redux/actions/userActions';
 import Cookies from 'js-cookie';
+import React from "react";
 
 const Layout = ({ children }) => {
     const isLoggedIn = useSelector(state => state.isLoggedIn);
     const userToken = useSelector(state => state.token);
+    const [navbarElements, setNavbarElements] = React.useState();
     const dispatch = useDispatch();
     const signOut = () => {
         dispatch(logOut());
@@ -26,9 +28,8 @@ const Layout = ({ children }) => {
         .catch(error => console.log('error', error));
             }
 
-    let navbarElements;
-    !isLoggedIn ? navbarElements =
-        <>
+    React.useEffect(() => {
+        !isLoggedIn ? setNavbarElements(        <>
             <Link href='/signup'>
                 <a className={styles.navbarLink}>
                     S'inscrire
@@ -39,18 +40,23 @@ const Layout = ({ children }) => {
                     Se connecter
             </a>
             </Link>
-        </>
+        </>)
         :
-        navbarElements =
+        setNavbarElements(
         <>
+            <Link href='/posts/new'>
+                <a className={styles.navbarLinkCreate}>
+                    Créer une annonce
+                </a>
+            </Link>
+            <Link href='/posts/owner_posts'>
+                <a className={styles.navbarLink}>
+                    Mes annonces
+            </a>
+            </Link>
             <Link href='/profile'>
                 <a className={styles.navbarLink}>
                     Mon profil
-            </a>
-            </Link>
-            <Link href='/posts'>
-                <a className={styles.navbarLink}>
-                    Mes annonces
             </a>
             </Link>
             <Link href='/'>
@@ -58,7 +64,9 @@ const Layout = ({ children }) => {
                     Se déconnecter
             </a>
             </Link>
-        </>
+        </>)
+    }, [isLoggedIn])
+    
         ;
     return (
         <>

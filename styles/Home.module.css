@@ -59,6 +59,27 @@
   @apply whitespace-nowrap
 }
 
+.navbarLinkCreate{
+  @apply w-full;
+  @apply px-3;
+  @apply py-2;
+  @apply rounded-xl;
+  @apply text-white;
+  @apply font-bold;
+  @apply items-center;
+  @apply justify-center;
+  @apply bg-red-500;
+  @apply text-gray-100;
+  @apply whitespace-nowrap
+}
+
+
+.navbarLinkCreate:hover{
+  @apply text-white;
+  @apply bg-red-700;
+  @apply shadow-lg;
+}
+
 .navbarLink:hover{
   @apply text-white;
 }
